@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>chat with seller | CampusConnect</title>
+  
+  <style>
+    .contact {
+      padding: 60px 30px;
+      max-width: 600px;
+      margin: auto;
+      background-color: #f4f4f4;
+      color: #333;
+      border-radius: 20px;
+    }
+
+    .contact h1 {
+      text-align: center;
+      color: #003566;
+      margin-bottom: 30px;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .contact button {
+      padding: 12px;
+      background-color: #022e57;
+      color: rgb(242, 243, 205);
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .contact button:hover {
+      background-color: #00264d;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .back-link a {
+      color: #003566;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!--<div class="logo">CampusConnect</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Signup</a></li>
+      </ul>
+    </nav>-->
+  </header>
+
+  <section class="contact">
+    <h1>Chat with Seller</h1>
+    <form method="POST" action="{{url_for('contact_seller')}}">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="subject" name="subject" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    
+  </section>
+
+  <div class="back-link">
+    <a href="{{url_for('home2')}}">← Back to Homepage</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

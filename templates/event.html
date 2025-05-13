@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event Items for Sale | CampusConnect</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #003566;
+      padding: 15px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .page-header {
+      background: linear-gradient(135deg, #003566, #0077b6);
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    .page-header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .page-header p {
+      font-size: 18px;
+      margin-top: 0;
+    }
+
+    .event-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 50px 30px;
+    }
+
+    .event-card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .event-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .event-card h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+      color: #003566;
+    }
+
+    .event-card p {
+      font-size: 14px;
+      margin: 4px 0;
+      color: #555;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #2a9d8f;
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .back-link a {
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+    .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .modern-btn {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    .detail-btn {
+            background: linear-gradient(135deg, #4caf50, #81c784);
+        }
+
+        .detail-btn:hover {
+            background: linear-gradient(135deg, #388e3c, #66bb6a);
+            transform: translateY(-2px);
+        }
+
+        .chat-btn {
+            background: linear-gradient(135deg, #2196f3, #64b5f6);
+        }
+
+        .chat-btn:hover {
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            transform: translateY(-2px);
+        }
+
+    footer {
+      background-color: #003566;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 14px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    CampusConnect Marketplace
+  </header>
+
+  <section class="page-header">
+    <h1>Event Items for Sale</h1>
+    <p>Buy or sell event-related items for college functions!</p>
+  </section>
+
+  <section class="event-container">
+    <div class="event-card">
+      <img src="https://via.placeholder.com/300x200" alt="Stage Lights">
+      <h3>Stage Lights</h3>
+      <p>LED Lights for Events</p>
+      <p class="price">₹1500</p>
+      <div class="button-row">
+      
+          <a href="{{url_for('sell')}}" class="modern-btn detail-btn">Detail More</a>
+          <a href="{{url_for('contact_seller')}}" class="modern-btn chat-btn">Chat with Seller</a>
+      </div>
+    </div>
+    </div>
+
+    <div class="event-card">
+      <img src="https://via.placeholder.com/300x200" alt="Sound System">
+      <h3>Sound System</h3>
+      <p>Speakers & Amplifiers</p>
+      <p class="price">₹5000</p>
+      <div class="button-row">
+        <a href="{{url_for('sell')}}" class="modern-btn detail-btn">Detail More</a>
+        <a href="{{url_for('contact_seller')}}" class="modern-btn chat-btn">Chat with Seller</a>
+    </div>
+    </div>
+
+    <div class="event-card">
+      <img src="https://via.placeholder.com/300x200" alt="Projector">
+      <h3>Projector</h3>
+      <p>For presentations</p>
+      <p class="price">₹3000</p>
+      <div class="button-row">
+        <a href="{{url_for('sell')}}" class="modern-btn detail-btn">Detail More</a>
+        <a href="{{url_for('contact_seller')}}" class="modern-btn chat-btn">Chat with Seller</a>
+    </div>
+    </div>
+  </section>
+
+  <div class="back-link">
+    <a href="{{url_for('home2')}}">← Back to Homepage</a>
+  </div>
+
+  <footer>
+    &copy; 2025 CampusConnect. All rights reserved.
+  </footer>
+
+</body>
+</html>

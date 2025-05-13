@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Account - Campus Marketplace</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f4f8;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #004d66;
+      color: white;
+      padding: 30px 20px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      padding: 10px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #006680;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .profile-header img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin-right: 20px;
+      object-fit: cover;
+      border: 3px solid #ddd;
+    }
+
+    .profile-header h2 {
+      margin-bottom: 5px;
+    }
+
+    .edit-form, .listing-section {
+      margin-top: 30px;
+    }
+
+    .edit-form h3, .listing-section h3 {
+      margin-bottom: 15px;
+      color: #004d66;
+    }
+
+    .edit-form form input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .edit-form form button {
+      background-color: #004d66;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .edit-form form button:hover {
+      background-color: #006680;
+    }
+
+    .listing-card {
+      display: flex;
+      align-items: center;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .listing-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+
+    .listing-info h4 {
+      margin-bottom: 5px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    .back-link {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .back-link a {
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h2>My Account</h2>
+      <a href="{{url_for('login')}}">Admin</a>
+      <a href="{{url_for('account')}}">Edit Profile</a>
+      
+      <a href="{{url_for('logout')}}">Logout</a>
+    </div>
+
+    <div class="main-content">
+      <div class="profile-header">
+        <img src="black admin.png"User Photo">
+        <div>
+        </div>
+      </div>
+
+      <div class="edit-form">
+        <h3>Edit Profile</h3>
+        <form>
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email" required>
+          <input type="text" placeholder="Course" required>
+          <input type="text" placeholder="Year" required>
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+
+      
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="back-link">
+    <a href="{{url_for('home2')}}">← Back to Homepage</a>
+  </div>
+
+</body>
+</html>

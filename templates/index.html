@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome | CampusConnect</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+</head>
+
+<body>
+
+<!-- Welcome Section with SVG Waves -->
+<div class="welcome-container">
+
+  <!-- Animated SVG Background -->
+  <div class="svg-background"></div>
+
+  <div class="content">
+    <h1>Welcome to <span>CampusConnect</span></h1>
+    <p class="subtitle">Where Students <span class="highlight">Buy</span>, <span class="highlight">Sell</span> & <span class="highlight">Connect</span>!</p>
+
+    <div class="features">
+      <div class="feature" data-aos="fade-up" data-aos-delay="100">Marketplace for Books, Electronics, Fashion & More</div>
+      <div class="feature" data-aos="fade-up" data-aos-delay="200">Campus Event Listings</div>
+      <div class="feature" data-aos="fade-up" data-aos-delay="300">Connect with Fellow Students</div>
+    </div>
+
+    <div class="buttons">
+      <a href="{{url_for('login') }}"class="btn login">Login</a>
+      <a href="{{url_for('signup')}}" class="btn signup">Sign Up</a>
+    
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
