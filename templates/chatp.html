@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+     <link rel="stylesheet" href="{{url_for('static',filename='chatp.css')}}"><!-- External CSS -->
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Chat with Seller</h2>
+        </div>
+        <div class="message-container">
+            <!-- Messages from database will be inserted here -->
+            <div class="message-container">
+                 {% for message in messages %}
+    <div class="message {% if message.sender_id == seller_id %}sent{% else %}received{% endif %}">
+  <p><strong>From User {{ message.sender_id }}:</strong> {{ message.message_content }}</p>
+
+                     <small>{{ message.timestamp }}</small>
+               </div>
+            {% endfor %}
+
+                
+            <!-- More messages will go here -->
+        </div>
+        <div class="chat-footer">
+            <form action="/send-message" method="POST">
+                <textarea name="message" placeholder="Type your message..." rows="2"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="back-link">
+    <a href="{{url_for('account')}}">← Back to dashboard</a>
+  </div>
+
+</body>
+</html>

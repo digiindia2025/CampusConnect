@@ -6,41 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us | CampusConnect</title>
-  <style>
-    .about-section {
-      padding: 60px 30px;
-      max-width: 900px;
-      margin: auto;
-      line-height: 1.8;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    .about-section h1 {
-      text-align: center;
-      color: #003566;
-      margin-bottom: 20px;
-    }
-
-    .about-section p {
-      font-size: 1.05rem;
-    }
-
-    .back-link {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .back-link a {
-      color: #003566;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .back-link a:hover {
-      text-decoration: underline;
-    }
-  </style>
+ <link rel="stylesheet" href="{{url_for('static',filename='about.css')}}">
 </head>
 <body>
   <section class="about-section">
@@ -60,7 +26,7 @@
   </section>
 
   <div class="back-link">
-    <a href="{{url_for('home2.html')}}"> ← Back to Homepage</a>
+    <a href="{{url_for('home2')}}"> ← Back to Homepage</a>
   </div>
 
   <footer>

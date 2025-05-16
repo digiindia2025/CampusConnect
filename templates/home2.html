@@ -4,206 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Campus Connect</title>
-  <style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  body {
-    background: #f4f4f4;
-    color: #333;
-  }
-  
-  header {
-    background: #003566;
-    color: white;
-    padding: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-  
-  nav ul {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: 0.3s;
-  }
-  
-  nav a:hover {
-    color: #ff0a47;
-  }
-  
-  .hero {
-    background: linear-gradient(to right, #003566, #001d3d);
-    color: white;
-    padding: 100px 50px;
-    text-align: center;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
- 
-/*    get started   */
- .btn {
-  padding: 10px 20px;
-  background-color: #ddbe0f;
-  color:#ffffff;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.btn:hover {
-  background-color: #003fb3;
-}        
- 
-/*  end  */
-
-    .slideshow {
-      width: 100%;
-      height: 400px;
-      overflow: hidden;
-      position: relative;
-      margin-top: 10px;
-    }
-
-    .slideshow .slides {
-      display: flex;
-      width: 500%;
-      animation: slide 20s infinite;
-    }
-
-    .slideshow .slides img {
-      width: 100%;
-      height: 550px;
-      object-fit: cover;
-    }
-
-    @keyframes slide {
-      0% { margin-left: 0; }
-      20% { margin-left: 0; }
-      25% { margin-left: -100%; }
-      45% { margin-left: -100%; }
-      50% { margin-left: -200%; }
-      70% { margin-left: -200%; }
-      75% { margin-left: -300%; }
-      95% { margin-left: -300%; }
-      100% { margin-left: 0; }
-    }
-/* Categories Section */
-.categories {
-  padding: 5rem 0;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  padding-top: 5px;
-  color: black;
-  margin-left: 20px;
-  margin-right: 20px;
-  padding-left: 10px;
-}
-
-.categories-grid {
-  display: flex;
- /* grid-template-columns: repeat(auto-fit, minmax(600px, 3fr));*/
-  flex-direction: column; /* Stack items vertically */
-  gap: 20px; /* Space between rows */
-  padding: 20px;
-  gap: 4rem;
-}
-
-.category-card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-}
-
-.category-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.card-image {
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.5s ease;
-}
-
-.category-card:hover .card-image {
-  transform: scale(1.1);
-}
-
-.category-card h3 {
-  margin: 1rem 0;
-  font-size: 1.5rem;
-}
-
-.btn-secondary {
-  background: #4e73df;
-  color: white;
-  padding: 0.5rem 1.5rem;
-  margin-bottom: 1rem;
-  border-radius: 20px;
-  text-decoration: none;
-  display: inline-block;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-.btn-secondary:hover {
-  background: #2e59d9;
-}
-  
-
-    
-    footer {
-      background: #2c3e50;
-      padding: 20px 0;
-      text-align: center;
-      color: white;
-      margin-top: 50px;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-      }
-
-      .slideshow, .slideshow .slides img {
-        height: 250px;
-      }
-    }
-  </style>
+   <link rel="stylesheet" href="{{url_for('static',filename='home2.css')}}">
 </head>
 
 <body>
@@ -232,55 +33,55 @@
     
 <div class="slideshow">
   <div class="slides">
-    <img src="book.jpeg" alt="Books">
-    <img src="fashion.jfif" alt="Fashion">
-    <img src="electr.jfif" alt="Electronics">
-    <img src="event.png" alt="Events">
-    <img src="stationery.jfif" alt="Stationery">
+ <img src="{{ url_for('static', filename='booki.jpg') }}" alt="Books">
+    <img src="{{ url_for('static', filename='hosteli.jpeg') }}" alt="Clothes">
+     <img src="{{ url_for('static', filename='event.jpeg') }}" alt="Event">
+      <img src="{{ url_for('static', filename='electronic.jpeg') }}" alt="Electronics">
+       <img src="{{ url_for('static', filename='stationery.jpg') }}" alt="Stationery">
   </div>
 </div>
 
-  <section class="categories">
+   <section class="categories">
     <div class="container">
       <h2 class="section-title">Explore Categories</h2>
       <div class="categories-grid">
         <div class="category-card fade-in">
-          <div class="card-image" style="background-image: url('book.jpeg');"></div>
+          <img src="{{ url_for('static', filename='book2.jpg') }}" alt="Image Description">
           <h3>Books</h3>
           <a href="{{url_for('book')}}" class="btn-secondary">Explore More</a>
         </div>
 
-       <!----> <div class="category-card fade-in delay-1">
+        <div class="category-card fade-in delay-1">
           <div class="card-image" style="background-image: url('fashion.jfif');"></div>
           <h3>Clothes & Accessories</h3>
           <a href="{{url_for('clothes')}}" class="btn-secondary">Explore More</a>
         </div>
 
         <div class="category-card fade-in delay-2">
-          <div class="card-image" style="background-image: url('electr.jfif');"></div>
+          <img src="{{ url_for('static', filename='electronic.jpeg') }}" alt="Image Description">
           <h3>Electronics & Gadgets</h3>
           <a href="{{url_for('electronic')}}" class="btn-secondary">Explore More</a>
         </div>
 
         <div class="category-card fade-in delay-3">
-          <div class="card-image" style="background-image: url('event.png');"></div>
+          <img src="{{ url_for('static', filename='eventi.jpg') }}" alt="Image Description">
           <h3>Event Items</h3>
           <a href="{{url_for('event')}}" class="btn-secondary">Explore More</a>
         </div>
 
         <div class="category-card fade-in delay-4">
-          <div class="card-image" style="background-image: url('hostel-pica.png');"></div>
+          <img src="{{ url_for('static', filename='hostel.jpeg') }}" alt="Image Description">
           <h3>Hostel Stuffs</h3>
           <a href="{{url_for('hostel')}}"class="btn-secondary">Explore More</a>
         </div>
 
         <div class="category-card fade-in delay-5">
-          <div class="card-image" style="background-image: url('stationery.jfif');"></div>
+           <img src="{{ url_for('static', filename='stationeryi.jpg') }}" alt="Image Description">
           <h3>Stationery Items</h3>
           <a href="{{url_for('stationery')}}" class="btn-secondary">Explore More</a>
         </div>
         <div class="category-card fade-in delay-5">
-          <div class="card-image" style="background-image: url('');"></div>
+          <img src="{{ url_for('static', filename='stationery.jpg') }}" alt="Image Description">
           <h3>Notes</h3>
           <a href="{{url_for('note')}}" class="btn-secondary">Explore More</a>
         </div>
@@ -289,6 +90,8 @@
   </section>
   </section>
 
+  
+      
 
 
   

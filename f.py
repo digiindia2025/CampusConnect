@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_mysqldb import MySQL
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -9,8 +10,12 @@ app.secret_key = 'your_secret_key'
 
 app.config['MYSQL_HOST']='localhost'
 app.config['MYSQL_USER']='root'
-app.config['MYSQL_PASSWORD']='@Engineering123'
-app.config['MYSQL_DB']='ecommerce'
+app.config['MYSQL_PASSWORD']='Bau#80021'
+# yaha per apna password lgao
+# apna pass yaha likh de 
+# ha likh do
+app.config['MYSQL_DB']='campus' 
+# sahi hai wait check krte h
 
 mysql=MySQL(app)
 
@@ -129,10 +134,47 @@ def stationery():
 @app.route("/note")
 def note():
     return render_template('note.html')
+@app.route('/chatp/<int:seller_id>', methods=['GET', 'POST'])
+def chatp(seller_id):
+    cur = mysql.connection.cursor()
 
-@app.route('/contact_seller')
-def contact_seller():
-    return render_template('contact_seller.html')
+    # Fetch messages for the seller
+    cur.execute("SELECT * FROM messages WHERE receiver_id = %s ORDER BY timestamp ASC", (seller_id,))
+    messages = cur.fetchall()
+
+    if request.method == 'POST':
+        sender_id = 1  # Replace with actual sender from session
+        msg = request.form['message']
+        cur.execute("INSERT INTO messages (sender_id, receiver_id, message_content) VALUES (%s, %s, %s)",
+                    (sender_id, seller_id, msg))
+        mysql.connection.commit()
+
+    return render_template('chatp.html', messages=messages,seller_id=seller_id)
+# sender
+@app.route('/contact_seller/<int:seller_id>', methods=['GET', 'POST'])
+def contact_seller(seller_id):
+    if 'user_id' not in session:
+        return redirect(url_for('login'))  # if user not logged in
+
+    sender_id = session['user_id']
+    cur = mysql.connection.cursor()
+
+    if request.method == 'POST':
+        message = request.form['message']
+        cur.execute("INSERT INTO messages (sender_id, receiver_id, message) VALUES (%s, %s, %s)",
+                    (sender_id, seller_id, message))
+        mysql.connection.commit()
+
+    # Fetch chat history
+    cur.execute("""
+    SELECT sender_id, receiver_id, message_content, timestamp FROM messages
+    WHERE (sender_id = %s AND receiver_id = %s)
+       OR (sender_id = %s AND receiver_id = %s)
+    ORDER BY timestamp ASC
+""", (session['user_id'], seller_id, seller_id, session['user_id']))
+
+
+    return render_template('contact_seller.html', messages=message, sender_id=sender_id)
 
 # Logout
 @app.route('/logout')

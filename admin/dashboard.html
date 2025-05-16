@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Campus Marketplace</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eef3f8;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #002f4b;
+      color: white;
+      padding: 30px 20px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      padding: 10px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #005066;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .main-content h3 {
+      color: #002f4b;
+      margin-bottom: 20px;
+    }
+
+    .admin-section {
+      background-color: #f9f9f9;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .admin-section h4 {
+      margin-bottom: 10px;
+    }
+
+    .admin-section p {
+      color: #555;
+    }
+
+    .back-link {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .back-link a {
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h2>Admin Panel</h2>
+      <a href="{{url_for('adminIndex')}}">Dashboard</a>
+      <a href="{{url_for('manage_users')}}">Manage Users</a>
+      <a href="{{url_for('manage_listings')}}">Manage Listings</a>
+      <a href="{{url_for('post_announcement')}}">Post Announcements</a>
+      <a href="{{url_for('Logout')}}">Logout</a>
+    </div>
+
+    <div class="main-content">
+      <h3>Welcome, Admin</h3>
+
+      <div class="admin-section">
+        <h4>Quick Stats</h4>
+        <p>Users Registered: 120</p>
+        <p>Items Listed: 85</p>
+        <p>Reports Pending: 4</p>
+      </div>
+
+      <div class="admin-section">
+        <h4>Recent Activities</h4>
+        <p>- New user "John" signed up.</p>
+        <p>- 3 new products were listed today.</p>
+        <p>- Report received on product #42.</p>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>

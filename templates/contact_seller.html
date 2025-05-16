@@ -5,66 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>chat with seller | CampusConnect</title>
   
-  <style>
-    .contact {
-      padding: 60px 30px;
-      max-width: 600px;
-      margin: auto;
-      background-color: #f4f4f4;
-      color: #333;
-      border-radius: 20px;
-    }
-
-    .contact h1 {
-      text-align: center;
-      color: #003566;
-      margin-bottom: 30px;
-    }
-
-    .contact form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .contact input,
-    .contact textarea {
-      padding: 12px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      width: 100%;
-    }
-
-    .contact button {
-      padding: 12px;
-      background-color: #022e57;
-      color: rgb(242, 243, 205);
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    .contact button:hover {
-      background-color: #00264d;
-    }
-
-    .back-link {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .back-link a {
-      color: #003566;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .back-link a:hover {
-      text-decoration: underline;
-    }
-  </style>
+ <link rel="stylesheet" href="{{url_for('static',filename='contact_seller.css')}}">
 </head>
 <body>
 
@@ -83,13 +24,21 @@
 
   <section class="contact">
     <h1>Chat with Seller</h1>
-    <form method="POST" action="{{url_for('contact_seller')}}">
+    <form method="POST" action="{{url_for('contact_seller',seller_id=2)}}"> <!--seller_id dynamic-->
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="subject" name="subject" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send</button>
     </form>
-    
+    <section class="chat-box">
+  <h2>Chat History</h2>
+  <div class="messages">
+    {% for msg in messages %}
+      <p><strong>{{ 'You' if msg[0] == sender_id else 'Seller' }}:</strong> {{ msg[1] }}<br>
+      <small>{{ msg[2] }}</small></p>
+    {% endfor %}
+  </div>
+</section>
   </section>
 
   <div class="back-link">

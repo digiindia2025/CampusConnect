@@ -1,0 +1,33 @@
+.about-section {
+      padding: 60px 30px;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.8;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .about-section h1 {
+      text-align: center;
+      color: #003566;
+      margin-bottom: 20px;
+    }
+
+    .about-section p {
+      font-size: 1.05rem;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .back-link a {
+      color: #003566;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
